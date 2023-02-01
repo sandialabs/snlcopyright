@@ -44,7 +44,7 @@ jobs:
         pytest -v
     - name: Generate coverage report
       run: |
-        pytest --cov=copyright --cov-report=xml
+        pytest --cov=snlcopyright --cov-report=xml
     - name: Upload coverage to Codecov
       # https://github.com/codecov/codecov-action/blob/master/README.md
       uses: codecov/codecov-action@v3
@@ -58,11 +58,11 @@ jobs:
         verbose: true # optional (default = false)
     - name: Test with Black
       run: |
-        black --check src/copyright --diff
+        black --check src/snlcopyright --diff
         black --check tests --diff
     - name: Test with flake8
       run: |
-        flake8 src/copyright --ignore E203,E501,W503 --statistics
+        flake8 src/snlcopyright --ignore E203,E501,W503 --statistics
         flake8 tests --ignore E203,E501,W503 --statistics
         # E203 whitespace before ':'
         # E501 line length exceeds 79 characters
