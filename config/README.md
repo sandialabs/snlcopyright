@@ -93,7 +93,7 @@ pytest             7.2.1
 pytest-cov         4.0.0
 PyYAML             6.0
 setuptools         47.1.0
-snlcopyright       0.0.5   /Users/cbh/snlcopyright
+snlcopyright       0.0.6   /Users/cbh/snlcopyright
 tomli              2.0.1
 typed-ast          1.5.4
 typing_extensions  4.4.0
@@ -121,12 +121,12 @@ Run from the REPL:
 ```bash
 (.venv) python
 Python 3.7.9 (v3.7.9:13c94747c7, Aug 15 2020, 01:31:08)
-[Clang 6.0 (clang-600.0.57)] on darwin
+[Clang 6.0 (clang-600.0.67)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from snlcopyright import command_line as cl
 >>> cl.copyright_version()
 copyright version:
-'0.0.5'
+'0.0.6'
 >>> quit()
 ```
 
