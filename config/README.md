@@ -210,8 +210,6 @@ pip install -e .[dev]
 
 ## Modify VS Code if desired
 
-In the user `settings.json`, add a reference to the Cubit install location.  
-
 Reference: Enable IntelliSense for custom package locations, https://code.visualstudio.com/docs/python/editing#_enable-intellisense-for-custom-package-locations
 
 Before:

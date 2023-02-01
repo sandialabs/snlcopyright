@@ -99,9 +99,9 @@ def copyright_update(path: Path, *, new: str, old=text_block()) -> bool:
     the `new` copyright text block.  Returns True if the append operation was
     successful; False otherwise.
 
-    For example, we may want to update the year, or year span, or contract number, etc.
-    The entire old string is removed from the module, and the entire new string
-    is inserted in its place.
+    For example, we may want to update the year, or year span, or contract
+    number, etc.  The entire old string is removed from the module, and the
+    entire new string is inserted in its place.
     """
     if old == new:
         # Do not update if the new string is identical to old string.
