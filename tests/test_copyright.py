@@ -9,7 +9,7 @@ pytest reli/tests/unit/test_copyright.py -v --cov=reli --cov-report term-missing
 from pathlib import Path
 from shutil import copyfile
 
-# from typing import Final  # postpone Final until Python 3.9 is required in pyproject.toml
+# from typing import Final  # postpone Final until Python 3.9 is used in pyproject.toml
 
 # import pytest
 
