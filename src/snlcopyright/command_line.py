@@ -7,7 +7,7 @@ import pkg_resources  # part of setup tools
 
 
 # module_name: Final[str] = "snlcopyright"  # postpone Final until 3.9 is required
-module_name: str = "snlcopyright"
+module_name: str = "snlcopyright"  # be D.R.Y.
 
 
 def commands() -> bool:  # This is a an entry point in pyproject.toml
