@@ -292,6 +292,9 @@ $ python -m twine upload --repository testpypi dist/*
 # 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.2/8.2 kB • 00:01 • ?
 # Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 # 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 kB • 00:00 • ?
+
+# For deployment (non-test)
+$ python -m twine upload dist/*
 ```
 
 ## Continuous Deployment (CD)
