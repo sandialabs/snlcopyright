@@ -2,7 +2,7 @@ import pkg_resources  # part of setup tools
 
 # from typing import Final
 
-# reference:
+# Reference:
 # https://setuptools.pypa.io/en/latest/userguide
 
 

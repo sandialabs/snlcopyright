@@ -15,7 +15,7 @@ def test_scinfo():
 
 def test_version():
     """Verifies the version specified in pyproject.toml is installed."""
-    known = "0.0.6"  # pyproject.toml defines the version
+    known = "0.0.7"  # pyproject.toml defines the version
     found = cl.copyright_version()
 
     assert found == known

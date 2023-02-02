@@ -125,7 +125,7 @@ Python 3.7.9 (v3.7.9:13c94747c7, Aug 15 2020, 01:31:08)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from snlcopyright import command_line as cl
 >>> cl.copyright_version()
-copyright version:
+snlcopyright version:
 '0.0.6'
 >>> quit()
 ```
