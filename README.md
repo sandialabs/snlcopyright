@@ -33,7 +33,23 @@ copyright .  # process cwd and children
 copyright ~/jdoe/foo  # process foo and children 
 ```
 
-To come.
+Command line entry points to the module are available via the `commands` command
+
+```bash
+commands
+
+------------
+snlcopyright
+------------
+This is the command line interface help for Sandia National Laboratories snlcopyright Python module.
+Available commands:
+commands           (this command)
+copyright          Appends contents `copyright.txt` contents to .py files in the cwd, recursively.
+copyright-info     Describes the installation details.
+copyright-show     Echos the `copyright.txt` contents to the terminal.
+copyright-status   Shows whether or not the copyright block was found in a .py file in the cwd, recursively.
+copyright-version  Prints the semantic verison of the current installation.
+```
 
 ## Contact
 
