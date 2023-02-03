@@ -7,7 +7,7 @@ Create, read, update, delete a copyright block in Python source code.
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/sandialabs/snlcopyright#license) 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-[![tests](https://github.com/sandialabs/copyright/workflows/tests/badge.svg)](https://github.com/sandialabs/snlcopyright/actions) [![codecov](https://codecov.io/gh/sandialabs/snlcopyright/branch/main/graph/badge.svg)](https://codecov.io/gh/sandialabs/snlcopyright)
+[![tests](https://github.com/sandialabs/snlcopyright/workflows/tests/badge.svg)](https://github.com/sandialabs/snlcopyright/actions) [![codecov](https://codecov.io/gh/sandialabs/snlcopyright/branch/main/graph/badge.svg)](https://codecov.io/gh/sandialabs/snlcopyright)
 
 ## Install
 
