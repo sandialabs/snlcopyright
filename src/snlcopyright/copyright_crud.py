@@ -168,7 +168,7 @@ def copyright() -> bool:  # This is a an entry point in pyproject.toml
 
 
 """
-Copyright 2021 Sandia National Laboratories
+Copyright 2023 Sandia National Laboratories
 
 Notice: This computer software was prepared by National Technology and Engineering Solutions of
 Sandia, LLC, hereinafter the Contractor, under Contract DE-NA0003525 with the Department of Energy
