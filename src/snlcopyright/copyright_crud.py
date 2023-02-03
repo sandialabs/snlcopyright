@@ -126,7 +126,33 @@ def copyright_update(path: Path, *, new: str, old=text_block()) -> bool:
         return True  # update occurred
 
 
+def copyright_status() -> bool:  # This is an entry point in pyproject.toml
+    """For a .py file in the current working directory, and recursively, prints to
+    the command line the status (present or not found) of the copyright text block.
+    Returns True if the function was successful, False otherwise."""
+    success = False
+
+    root_path = Path.cwd()
+    print(f"Processing path: {root_path}")
+    print("Checking all `*.py` files for the text block contained in `copyright.txt`.")
+
+    py_files = modules_list(root_path)
+
+    for item in py_files:
+        copyrighted = copyright_exists(item)
+        # icon = "green" if copyrighted else "red"
+        icon = "\u2713" if copyrighted else "\u274c"  # green check mark or red 'x'
+        message = "copyrighted" if copyrighted else "copyright not found"
+        print(f"{item} has copyright? {icon} {message}")
+
+    success = True  # overwrite
+    return success
+
+
 def copyright() -> bool:  # This is a an entry point in pyproject.toml
+    """Appends the copyright block all .py files in the current folder and,
+    recursively, in subfolders.  Returns True if function was successful, False
+    otherwise."""
     success = False
     root_path = Path.cwd()
     print(f"Processing path: {root_path}")
@@ -138,7 +164,6 @@ def copyright() -> bool:  # This is a an entry point in pyproject.toml
         copyright_create(item)
 
     success = True  # overwrite
-
     return success
 
 

@@ -185,9 +185,9 @@ tests/test_copyright.py .....                                             [100%]
 ---------- coverage: platform darwin, python 3.7.9-final-0 -----------
 Name                              Stmts   Miss  Cover   Missing
 ---------------------------------------------------------------
-src/copyright/__init__.py             0      0   100%
-src/copyright/command_line.py        31      0   100%
-src/copyright/copyright_crud.py      44      0   100%
+src/snlcopyright/__init__.py             0      0   100%
+src/snlcopyright/command_line.py        31      0   100%
+src/snlcopyright/copyright_crud.py      44      0   100%
 ---------------------------------------------------------------
 TOTAL                                75      0   100%
 
@@ -196,14 +196,14 @@ TOTAL                                75      0   100%
 ```
 
 Success!  The `venv` virtual environment `.venv` has been created, 
-and the `atmesh` module is now installed and tested.
+and the `snlcopyright` module is now installed and tested.
 
 ## Typical Development Cycle
 
 ```bash
 # develop code
 # uninstall the now-outdated developer installation
-pip uninstall copyright
+pip uninstall snlcopyright
 # reinstall the module with the newly developed code
 pip install -e .[dev]
 ```

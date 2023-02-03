@@ -25,6 +25,9 @@ def commands() -> bool:  # This is a an entry point in pyproject.toml
     )
     print("copyright-info     Describes the installation details.")
     print("copyright-show     Echos the `copyright.txt` contents to the terminal.")
+    print(
+        "copyright-status   Shows whether or not the copyright block was found in a .py file in the cwd, recursively."
+    )
     print("copyright-version  Prints the semantic verison of the current installation.")
 
     return True

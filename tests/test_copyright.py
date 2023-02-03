@@ -102,6 +102,14 @@ def test_modules_list():
         assert item in expected
 
 
+def test_copyright_status():
+    """Given the test folder, run though the status of each .py file."""
+    # aa = Path(__file__).parent  # tests folder
+    # success = cr.copyright_status(aa)
+    success = cr.copyright_status()
+    assert success
+
+
 # @pytest.mark.skip("work in progress")
 def test_copyright_update():
     """Given a module with a copyright, test that the copyright can be updated."""
@@ -150,6 +158,21 @@ def test_copyright_update():
 
 """
 Copyright 2021 Sandia National Laboratories
+
+Notice: This computer software was prepared by National Technology and Engineering Solutions of
+Sandia, LLC, hereinafter the Contractor, under Contract DE-NA0003525 with the Department of Energy
+(DOE). All rights in the computer software are reserved by DOE on behalf of the United States
+Government and the Contractor as provided in the Contract. You are authorized to use this computer
+software for Governmental purposes but it is not to be released or distributed to the public.
+NEITHER THE U.S. GOVERNMENT NOR THE CONTRACTOR MAKES ANY WARRANTY, EXPRESS OR IMPLIED, OR ASSUMES
+ANY LIABILITY FOR THE USE OF THIS SOFTWARE. This notice including this sentence must appear on any
+copies of this computer software. Export of this data may require a license from the United States
+Government.
+"""
+
+
+"""
+Copyright 2023 Sandia National Laboratories
 
 Notice: This computer software was prepared by National Technology and Engineering Solutions of
 Sandia, LLC, hereinafter the Contractor, under Contract DE-NA0003525 with the Department of Energy
