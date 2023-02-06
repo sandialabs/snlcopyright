@@ -2,7 +2,7 @@
 
 from pathlib import Path
 from shutil import copyfile
-from typing import List
+from typing import List, NamedTuple
 
 
 """
@@ -15,6 +15,24 @@ Plan:  Support most CRUD (create, read, update, delete) operations.
 
 Support recursion, so that all .py files in nested subdirectories are handled too.
 """
+
+
+class Icon(NamedTuple):
+    """Define the Unicode strings for icons shown in command line messages.
+    This NamedTuple is a D.R.Y replacement W.E.T. string definitions that once existed:
+    icon = "green" if copyrighted else "red"
+    icon = "\u2713" if copyrighted else "\u274c"  # green check mark or red 'x'
+    """
+
+    checkmark: str = "\u2713"
+    red_x: str = "\u274c"
+
+
+class FoundString(NamedTuple):
+    """Define the found or not found string."""
+
+    found: str = "copyright was found"
+    not_found: str = "copyright was not found"
 
 
 def text_block() -> str:  # This is a an entry point in pyproject.toml
@@ -126,11 +144,46 @@ def copyright_update(path: Path, *, new: str, old=text_block()) -> bool:
         return True  # update occurred
 
 
+def copyright_delete() -> bool:  # This is an entry point in pyproject.toml
+    """For all .py files in the current working directory, and recursively, deletes
+    the copyright block defined in `copyright.txt` if it is found.  Returns True
+    if the function was successful, False otherwise."""
+    success = False
+    ic = Icon()
+    fs = FoundString()
+
+    root_path = Path.cwd()
+    print(f"Processing path: {root_path}")
+    print("Deleting the text block contained in `copyright.txt` from all .py files.")
+
+    py_files = modules_list(root_path)
+
+    for item in py_files:
+        copyrighted = copyright_exists(item)
+        if copyrighted:
+            icon = ic.checkmark if copyrighted else ic.red_x
+            message = fs.found if copyrighted else fs.not_found
+            print(f"{item} {icon} {message}")
+            print("...attempting to update...")
+            copyright_update(path=item, new="")
+            copyrighted = copyright_exists(item)  # overwrite
+            if not copyright_exists(item):
+                icon = ic.checkmark if copyrighted else ic.red_x  # overwrite
+                message = fs.found if copyrighted else fs.not_found  # overwrite
+                print("......update successful:")
+                print(f"{item} {icon} {message}")
+
+    success = True  # overwrite
+    return success
+
+
 def copyright_status() -> bool:  # This is an entry point in pyproject.toml
     """For a .py file in the current working directory, and recursively, prints to
     the command line the status (present or not found) of the copyright text block.
     Returns True if the function was successful, False otherwise."""
     success = False
+    ic = Icon()
+    fs = FoundString()
 
     root_path = Path.cwd()
     print(f"Processing path: {root_path}")
@@ -140,10 +193,9 @@ def copyright_status() -> bool:  # This is an entry point in pyproject.toml
 
     for item in py_files:
         copyrighted = copyright_exists(item)
-        # icon = "green" if copyrighted else "red"
-        icon = "\u2713" if copyrighted else "\u274c"  # green check mark or red 'x'
-        message = "copyrighted" if copyrighted else "copyright not found"
-        print(f"{item} has copyright? {icon} {message}")
+        icon = ic.checkmark if copyrighted else ic.red_x
+        message = fs.found if copyrighted else fs.not_found
+        print(f"{item} {icon} {message}")
 
     success = True  # overwrite
     return success

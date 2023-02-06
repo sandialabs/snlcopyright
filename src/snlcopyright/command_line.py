@@ -21,7 +21,10 @@ def commands() -> bool:  # This is a an entry point in pyproject.toml
     print("Available commands:")
     print("commands           (this command)")
     print(
-        "copyright          Appends contents `copyright.txt` contents to .py files in the cwd, recursively."
+        "copyright          Appends contents of `copyright.txt` to .py files in the cwd, recursively."
+    )
+    print(
+        "copyright-delete   Deletes contents of `copyright.txt` from .py files in cwd, recursively."
     )
     print("copyright-info     Describes the installation details.")
     print("copyright-show     Echos the `copyright.txt` contents to the terminal.")

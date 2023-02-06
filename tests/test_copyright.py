@@ -6,6 +6,7 @@ pytest reli/tests/unit/test_copyright.py -v
 pytest reli/tests/unit/test_copyright.py -v --cov=reli --cov-report term-missing
 """
 
+import os
 from pathlib import Path
 from shutil import copyfile
 
@@ -154,6 +155,51 @@ def test_copyright_update():
 
     # Remove the newly created temp file.
     path_bak.unlink()
+
+
+def test_copyright_delete():
+    """Given a module with an existing copyright text block, test that the copyright
+    can be deleted."""
+
+    # Work with the files in the tests/files folder.
+    aa = Path(__file__).parent  # maps to the snlcopyright/tests folder
+    bb = aa.joinpath("files")  # maps to the snlcopyright/tests/files folder
+    cc = bb.joinpath("temp")  # maps to the snlcopyright/tests/files/temp folder
+
+    # exist_ok=True is convenient for manual testing
+    # allow for case where folder already exists
+    cc.mkdir(exist_ok=True)  # create a nested temp directory and assert it now exists
+    files_temp = []  # keep a list of temporary files created by this test
+
+    assert cc.is_dir  # assert the temp directory exists
+
+    # Make a backup copy of each file and restore them at the end of the test.
+    for item in cr.modules_list(bb):
+        temp_file = cc.joinpath("~" + item.name)
+        copyfile(src=item, dst=temp_file)
+        files_temp.append(temp_file)
+
+    # Assert that there is at least one file in files_bak that has a copyright.
+    results = tuple(map(cr.copyright_exists, files_temp))
+    assert any(results)
+
+    original_path = Path.cwd()
+    os.chdir(cc)
+
+    cr.copyright_delete()  # given the dir and recursively, deletes all copyrights
+
+    os.chdir(original_path)
+
+    # Assert that none of the files in files_bak that has a copyright.
+    results = tuple(map(cr.copyright_exists, files_temp))
+    assert not all(results)
+
+    # Delete newly created temp files.
+    for item in cr.modules_list(cc):
+        item.unlink()
+
+    # Delete the newly created temp folder.
+    cc.rmdir()
 
 
 """
