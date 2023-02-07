@@ -44,7 +44,8 @@ snlcopyright
 This is the command line interface help for Sandia National Laboratories snlcopyright Python module.
 Available commands:
 commands           (this command)
-copyright          Appends contents `copyright.txt` contents to .py files in the cwd, recursively.
+copyright          Appends contents of `copyright.txt` to .py files in the cwd, recursively.
+copyright-delete   Deletes contents of `copyright.txt` from .py files in cwd, recursively.
 copyright-info     Describes the installation details.
 copyright-show     Echos the `copyright.txt` contents to the terminal.
 copyright-status   Shows whether or not the copyright block was found in a .py file in the cwd, recursively.
