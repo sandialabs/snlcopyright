@@ -1,4 +1,5 @@
 import pkg_resources  # part of setup tools
+from itertools import repeat
 
 # from typing import Final
 
@@ -8,13 +9,14 @@ import pkg_resources  # part of setup tools
 
 # module_name: Final[str] = "snlcopyright"  # postpone Final until 3.9 is required
 module_name: str = "snlcopyright"  # be D.R.Y.
+underline: str = "".join(repeat("-", len(module_name)))
 
 
 def commands() -> bool:  # This is a an entry point in pyproject.toml
-    """Echos to the available command line entry points."""
-    print("------------")
+    """Echos available command line entry points to the terminal."""
+    print(underline)
     print(f"{module_name}")
-    print("------------")
+    print(underline)
     print(
         f"This is the command line interface help for Sandia National Laboratories {module_name} Python module."
     )
